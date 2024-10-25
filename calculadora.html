@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculadora</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="javasript.js"></script>
+
+</head>
+<body>
+
+    <div class="corpo">
+        <div class="mostrar">
+            <label id="tela">0</label>
+        </div>
+        <div class="teclado">
+            <div class="fila1">
+                <div class="numeros" onclick="concatenar_numero(7)">7</div>
+                <div class="numeros" onclick="concatenar_numero(8)">8</div>
+                <div class="numeros" onclick="concatenar_numero(9)">9</div>
+                <div class="operacao" onclick="operacao('+')">+</div>
+            </div>
+            <div class="fila2">
+                <div class="numeros" onclick="concatenar_numero(4)">4</div>
+                <div class="numeros" onclick="concatenar_numero(5)">5</div>
+                <div class="numeros" onclick="concatenar_numero(6)">6</div>
+                <div class="operacao"onclick="operacao('-')">-</div>
+            </div>
+            <div class="fila3">
+                <div class="numeros" onclick="concatenar_numero(1)">1</div>
+                <div class="numeros" onclick="concatenar_numero(2)">2</div>
+                <div class="numeros" onclick="concatenar_numero(3)">3</div>
+                <div class="operacao" onclick="operacao('*')">*</div>
+            </div>
+            <div class="fila4">
+                <div class="numeros" onclick="concatenar_numero(0)">0</div>
+                <div class="funcao" id="resetar_button" onclick="resetar()">Clear</div>
+                <div class="operacao" onclick="operacao('=')">=</div>
+                <div class="operacao" onclick="operacao('/')">/</div>
+            </div>
+        </div>
+
+    </div>
+
+
+    
+</body>
+</html>
