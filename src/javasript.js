@@ -56,9 +56,13 @@ class Calculadora {
                 }
             }
     
-            this.display.adicionarAoDisplay(this.calculo.lista[0])
-            this.calculo.zerarConta();
-        }        
+        const resultado = this.calculo.zerarConta();
+        this.display.adicionarAoDisplay(resultado);
+        this.num = resultado.toString(); // Para permitir novas operações
+            
+        }   
+        
+        
     }    
 }
 
@@ -138,10 +142,11 @@ class Calculo {
     }
 
     zerarConta() {
-        calculadora.num = this.lista[0]
-        this.lista = []
+        const resultadoFinal = this.lista.length > 0 ? this.lista[0] : 0;
+        this.lista = [];
         this.qnt_multdiv = 0;
-        this.qnt_simples = 0;        
+        this.qnt_simples = 0;
+        return resultadoFinal;        
     }
 
 }
