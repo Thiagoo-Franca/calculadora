@@ -10,12 +10,8 @@ class Calculadora {
     }
 
     concatenarNumero(numero) {
-            if (this.num === this.calculo.lista[0].toString()) {
-                this.num = "";
-            }
-            this.num += numero;
-            this.display.adicionarAoDisplay(this.num);
-        
+        this.num += numero;
+        this.display.adicionarAoDisplay(this.num)
     }
 
     limparNum () {
@@ -60,13 +56,9 @@ class Calculadora {
                 }
             }
     
-        const resultado = this.calculo.zerarConta();
-        this.display.adicionarAoDisplay(resultado);
-        this.num = resultado.toString(); // Para permitir novas operações
-            
-        }   
-        
-        
+            this.display.adicionarAoDisplay(this.calculo.lista[0])
+            this.calculo.zerarConta();
+        }        
     }    
 }
 
@@ -74,11 +66,9 @@ document.addEventListener('keydown', function(event) {
     const key = event.key;
     if (!isNaN(key)) {
         calculadora.concatenarNumero(key); // Para números
-    }
-    else if (key === '+' || key === '-' || key === '*' || key === '/') {
+    } else if (key === '+' || key === '-' || key === '*' || key === '/') {
         calculadora.operacao(key); // Para operadores
-    }
-    else if (key === 'Enter') {
+    } else if (key === 'Enter') {
         calculadora.operacao('='); // Para igual
     }
 });
@@ -146,11 +136,10 @@ class Calculo {
     }
 
     zerarConta() {
-        const resultadoFinal = this.lista.length > 0 ? this.lista[0] : 0;
-        this.lista = [];
+        calculadora.num = this.lista[0]
+        this.lista = []
         this.qnt_multdiv = 0;
-        this.qnt_simples = 0;
-        return resultadoFinal;        
+        this.qnt_simples = 0;        
     }
 
 }
