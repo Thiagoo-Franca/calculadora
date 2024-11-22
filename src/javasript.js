@@ -10,8 +10,12 @@ class Calculadora {
     }
 
     concatenarNumero(numero) {
-        this.num += numero;
-        this.display.adicionarAoDisplay(this.num)
+            if (this.num === this.calculo.lista[0].toString()) {
+                this.num = "";
+            }
+            this.num += numero;
+            this.display.adicionarAoDisplay(this.num);
+        
     }
 
     limparNum () {
