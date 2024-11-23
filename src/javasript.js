@@ -1,6 +1,7 @@
 class Calculadora {
     constructor() {
         this.num = '';
+        this.aritimetica = '';
 
         const calculo = new Calculo();
         this.calculo = calculo;
@@ -10,8 +11,17 @@ class Calculadora {
     }
 
     concatenarNumero(numero) {
+        if (this.calculo.lista.length === 1 && this.num === "") {
+            this.aritimetica = ""; 
+            this.calculo.lista = [];
+        }
+        if (numero === '.' && this.num.includes('.')) {
+            return;
+        }
         this.num += numero;
+        this.aritimetica += numero
         this.display.adicionarAoDisplay(this.num)
+        this.display.adicionarAoHistorico(this.aritimetica)
     }
 
     limparNum () {
@@ -25,6 +35,7 @@ class Calculadora {
         else if (operando === '+' || operando === '-') {
             this.calculo.incrementarSomasSub();
         }
+  
     }
 
     operacao(operando) {
@@ -33,6 +44,8 @@ class Calculadora {
             this.display.adicionarAoDisplay("Erro");
             return;
         }
+
+        
         let numero_convertido = Number(this.num);
         
         this.calculo.lista.push(numero_convertido);
@@ -43,6 +56,8 @@ class Calculadora {
         }
         
         this.display.adicionarAoDisplay(operando)
+        this.aritimetica += operando
+        this.display.adicionarAoHistorico(this.aritimetica)
     
         if (operando === "=") {
             if (this.calculo.qnt_multdiv > 0) {
@@ -57,7 +72,9 @@ class Calculadora {
             }
     
             this.display.adicionarAoDisplay(this.calculo.lista[0])
+            this.aritimetica = this.calculo.lista[0];
             this.calculo.zerarConta();
+            this.display.adicionarAoHistorico(this.aritimetica)
         }        
     }    
 }
@@ -70,6 +87,9 @@ document.addEventListener('keydown', function(event) {
         calculadora.operacao(key); // Para operadores
     } else if (key === 'Enter') {
         calculadora.operacao('='); // Para igual
+    }
+    else if (key == '.') {
+        calculadora.concatenarNumero(key)
     }
 });
 
@@ -91,8 +111,9 @@ class Calculo {
         this.lista = [];
         this.qnt_multdiv = 0;
         this.qnt_simples = 0;
+        calculadora.aritimetica = ""
         this.num = "";
-        calculadora.display.adicionarAoDisplay("");
+        calculadora.display.limparTela()
     }
 
     resolverSomasSub (lista) {
@@ -139,7 +160,7 @@ class Calculo {
         calculadora.num = this.lista[0]
         this.lista = []
         this.qnt_multdiv = 0;
-        this.qnt_simples = 0;        
+        this.qnt_simples = 0;    
     }
 
 }
@@ -151,6 +172,20 @@ class Display {
     adicionarAoDisplay(conta) {
         var mostra = document.getElementById("tela")
         mostra.textContent = conta;
+        return
+    }
+    adicionarAoHistorico(simbolos) {
+        var mostra = document.getElementById("conta");
+        mostra.textContent = simbolos
+        return
+    }
+    limparTela() {
+        var mostra = document.getElementById("tela")
+        var mostra1 = document.getElementById("conta")
+
+        mostra.textContent = " ";
+        mostra1.textContent = " ";
+
     }
 }
 
