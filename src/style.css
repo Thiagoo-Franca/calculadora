@@ -3,6 +3,10 @@
     margin: 0;
 }
 
+.corpo {
+    
+}
+
 body {
     height: 100dvh;
     display: grid;
@@ -21,22 +25,27 @@ body {
     border: 1px solid gray;
 }
 
-.mostrar {
-    height: 90px;
+.display {
+    height: 100px;
     background-color: white;
     display: grid;
     align-items: center;
     justify-items: right;
 }
 
-#tela {
+#historico {
+    margin-right: 10px;
+    color: dimgray
+}
+
+#resultado {
     border: 0px;
-    font-size: 24px;
+    font-size: 28px;
     margin-right: 10px;
 }
 
-.numeros , .operacao , .funcao, .ponto{
-    width: 90px;
+.numeros , .operacao , .funcao, .ponto, .parenteses{
+    width: 120px;
     height: 90px;
     display: grid;
     justify-content: center;
@@ -46,14 +55,14 @@ body {
 
 
 #resetar_button {
-    background-color: rgb(255, 80, 80);
+    background-color: rgb(255, 113, 113);
 }
 #resetar_button:hover {
     background-color: rgb(224, 63, 63);
     cursor: pointer;
 }
 
-.numeros:hover {
+.numeros:hover, .funcao:hover, .ponto:hover, .parenteses:hover {
     background-color: lightgray;
     cursor: pointer;   
 }
