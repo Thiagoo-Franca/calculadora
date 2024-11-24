@@ -4,51 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>calculadora</title>
-    <link rel="stylesheet" href="src/style.css">
-    <script src="src/javasript.js"></script>
-
+    <link rel="stylesheet" href="style.css">
+    <script src="javasript.js"></script>
 </head>
 <body>
 
     <div class="corpo">
-        <div class="mostrar">
-            <label id="conta"> </label>
-            <label id="tela">0</label>
+        
+        <div class="display">
+            <label id="historico"> </label>
+            <label id="resultado">0</label>
         </div>
+
         <div class="teclado">
+        
             <div class="fila1">
+                <div class="funcao" id="resetar_button" onclick="calculadora.calculo.resetar()">Clear</div>
+                <div class="funcao" onclick="calculadora.apagarNumero()"><-</div>
+                <div class="parenteses">(</div>
+                <div class="parenteses">)</div> <!--falta implementacao-->
+            </div>
+            
+            <div class="fila2">
                 <div class="numeros" onclick="calculadora.concatenarNumero(7)">7</div>
                 <div class="numeros" onclick="calculadora.concatenarNumero(8)">8</div>
                 <div class="numeros" onclick="calculadora.concatenarNumero(9)">9</div>
-                <div class="operacao" onclick="calculadora.operacao('+')">+</div>
+                <div class="operacao" onclick="calculadora.operacao('/')">/</div>
             </div>
-            <div class="fila2">
+            
+            <div class="fila3">
                 <div class="numeros" onclick="calculadora.concatenarNumero(4)">4</div>
                 <div class="numeros" onclick="calculadora.concatenarNumero(5)">5</div>
                 <div class="numeros" onclick="calculadora.concatenarNumero(6)">6</div>
-                <div class="operacao"onclick="calculadora.operacao('-')">-</div>
+                <div class="operacao" onclick="calculadora.operacao('*')">*</div>
             </div>
-            <div class="fila3">
+            
+            <div class="fila4">
                 <div class="numeros" onclick="calculadora.concatenarNumero(1)">1</div>
                 <div class="numeros" onclick="calculadora.concatenarNumero(2)">2</div>
                 <div class="numeros" onclick="calculadora.concatenarNumero(3)">3</div>
-                <div class="operacao" onclick="calculadora.operacao('*')">*</div>
+                <div class="operacao"onclick="calculadora.operacao('-')">-</div>
             </div>
-            <div class="fila4">
-                <div class="numeros" onclick="calculadora.concatenarNumero(0)">0</div>
-                <div class="funcao" id="resetar_button" onclick="calculadora.calculo.resetar()">Clear</div>
-                <div class="operacao" onclick="calculadora.operacao('=')">=</div>
-                <div class="operacao" onclick="calculadora.operacao('/')">/</div>
-            </div>
+            
             <div class="fila5">
+                <div class="numeros" onclick="calculadora.concatenarNumero(0)">0</div>
                 <div class="ponto" onclick="calculadora.concatenarNumero('.')">.</div>
+                <div class="operacao" onclick="calculadora.operacao('=')">=</div>
+                <div class="operacao" onclick="calculadora.operacao('+')">+</div>
+
             </div>
-
         </div>
-
     </div>
-
-
     
 </body>
 </html>
