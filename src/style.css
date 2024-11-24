@@ -45,8 +45,8 @@ body {
 }
 
 .numeros , .operacao , .funcao, .ponto, .parenteses{
-    width: 100px;
-    height: 85px;
+    width: 80px;
+    height: 90px;
     display: grid;
     justify-content: center;
     align-items: center;
